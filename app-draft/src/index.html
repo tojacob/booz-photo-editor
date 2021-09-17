@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.scss">
+  <title>App Tests</title>
+</head>
+
+<body>
+  <div id="template-general" class="template template--general">
+    <img class="template__image" src="./img-shoes.jpg">
+    <div class="template__info">
+      <div class="info__brand">
+        <img class="brand__image brand__image--bottom-left" src="./logo-rounded.png">
+      </div>
+    </div>
+    <div class="template__identification">
+      <span class="model__value">
+        #<span data-info="identification">32</span>
+      </span>
+    </div>
+  </div>
+  <div id="template-shoes" class="template template--shoes">
+    <img class="template__image" src="./img-shoes.jpg">
+    <div class="template__info">
+      <div class="info info--top">
+        <div class="info__data">
+          <span class="data__title">TALLA:</span>
+          <span class="data__value">6 MEXICANO</span>
+          <span class="data__value">8 AMERICANO</span>
+        </div>
+        <div class="info__price">
+          <div class="price__content">
+            <span class="price__title">COSTO:</span>
+            <span class="price__value">$1,900 MXN</span>
+          </div>
+        </div>
+      </div>
+      <div class="info info--bottom">
+        <div class="info__brand">
+          <img class="brand__image" src="./logo-rounded.png">
+        </div>
+      </div>
+    </div>
+    <div class="template__identification">
+      <span class="model__value">#33</span>
+    </div>
+  </div>
+  <div id="template-pant" class="template template--common">
+    <img class="template__image" src="./img-pant.jpg">
+    <div class="template__info">
+      <div class="info info--left">
+        <div class="info__data">
+          <span class="size__title">TALLA:</span>
+          <span class="size__value">30X30</span>
+        </div>
+        <div class="info__data">
+          <span class="size__title">CORTE:</span>
+          <span class="size__value">"SKINNY"</span>
+        </div>
+        <div class="info__data">
+          <span class="data__title">COLOR:</span>
+          <span lang="es" class="data__value">EFFORTLESSLY COOL</span>
+        </div>
+        <div class="info__price">
+          <div class="price__content">
+            <span class="price__title">COSTO:</span>
+            <span class="price__value">$1,300 MXN</span>
+          </div>
+        </div>
+      </div>
+      <div class="info info--right">
+        <div class="info__brand">
+          <img class="brand__image" src="./logo-rounded.png">
+        </div>
+      </div>
+    </div>
+    <div class="template__identification">
+      <span class="model__value">#33</span>
+    </div>
+  </div>
+  <div id="template-shirt" class="template template--common">
+    <img class="template__image" src="./img-shirt.jpeg">
+    <div class="template__info">
+      <div class="info info--left">
+        <div class="info__data-with-desc">
+          <span class="data__title">TALLA "S"</span>
+          <span class="data__description">VIENE A LA MEDIDA</span>
+        </div>
+        <div class="info__price">
+          <div class="price__content">
+            <span class="price__title">COSTO:</span>
+            <span class="price__value">$1,900 MXN</span>
+          </div>
+        </div>
+      </div>
+      <div class="info info--right">
+        <div class="info__brand">
+          <img class="brand__image" src="./logo-rounded.png">
+        </div>
+      </div>
+    </div>
+    <div class="template__identification">
+      <span class="model__value">#33</span>
+    </div>
+  </div>
+  <script src="./index.ts"></script>
+</body>
+
+</html>

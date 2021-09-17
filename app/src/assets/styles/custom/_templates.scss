@@ -1,0 +1,243 @@
+.template {
+  --template-primary-font-size: 90px;
+  --template-secondary-font-size: 70px;
+  --template-badge-border-radius: 90px;
+  --template-badge-bgc: rgba(0, 0, 0, 0.20);
+  --template__image-size: 1600px;
+  --template__image-index: 10;
+  --template__info-index: 15;
+  --template__info-primary-bgc: rgba(0, 0, 0, 0.60);
+  --template__info-size: 100%;
+  --template__info-width: calc(var(--template__image-size) - 3%);
+  --template__info-height: calc(var(--template__image-size) - 3%);
+  --template__info-tc: #fff;
+  --template__info-badge-padding: 32px;
+  --template__info-badge-margin-bottom: 0;
+  --template__info-badge-margin-right: 0;
+  --template__info__brand-opacity: 0.75;
+  --template__info__price-badge-bgc: rgba(246, 14, 9, 0.80);
+  --template__identification-index: 20;
+  --template__identification-font-size: 40px;
+  --template__identification-margin: 1.5%;
+  --template__identification-padding: 16px;
+  --template--common__info__brand-size: 342px;
+  --template--shoes__info--top-margin-top: 9%;
+  --template--shoes__info--top-height: 18%;
+  --template__brand-image-size: 100%;
+
+  position: relative;
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  max-width: var(--template__image-size);
+  max-height: var(--template__image-size);
+  width: var(--template__image-size);
+  height: var(--template__image-size);
+  font-family: 'Alumni Sans', sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+
+  .template__image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    height: var(--template__image-size);
+    width: var(--template__image-size);
+    z-index: var(--template__image-index);
+  }
+  
+  .template__info {
+    position: relative;
+    display: block;
+    width: var(--template__info-width);
+    height: var(--template__info-height);
+    z-index: var(--template__info-index);
+  }
+  
+  .info__brand {
+    width: 100%;
+    height: auto;
+
+    .brand__image {
+      display: block;
+      width: var(--template__brand-image-size);
+      height: var(--template__brand-image-size);
+      opacity: var(--template__info__brand-opacity);
+    }
+  }
+  
+  .info__data {
+    display: block;
+    font-size: var(--template-primary-font-size);
+    color: var(--template__info-tc);
+    padding: var(--template__info-badge-padding);
+    border-radius: var(--template-badge-border-radius);
+    background-color: var(--template__info-primary-bgc);
+    margin-bottom: var(--template__info-badge-margin-bottom);
+    margin-right: var(--template__info-badge-margin-right);
+
+    .data__title {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .data__value {
+      display: block;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+  }
+  
+  .info__price {
+    color: var(--template__info-tc);
+    
+    .price__content {
+      background-color: var(--template__info__price-badge-bgc);
+      border-radius: var(--template-badge-border-radius);
+      padding: var(--template__info-badge-padding);
+    }
+
+    .price__title, .price__value {
+      display: block;
+      font-size: var(--template-secondary-font-size);
+    }
+
+    .price__value {
+      white-space: nowrap;
+    }
+  }
+  
+  .template__identification {
+    position: absolute;
+    bottom: var(--template__identification-margin);
+    right: var(--template__identification-margin);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--template__identification-padding);
+    font-size: var(--template__identification-font-size);
+    color: var(--template__info-tc);
+    background-color: var(--template-badge-bgc);
+    border-radius: var(--template-badge-border-radius);
+    z-index: var(--template__identification-index);
+  }
+
+  &.template--general {
+    --template__brand-image-size: 23%;
+
+    .info__brand {
+      width: 100%;
+      height: 100%;
+
+      .brand__image {
+        position: absolute;
+      }
+
+      .brand__image--top-left {
+        top: 0;
+        left: 0;
+      }
+
+      .brand__image--top-right {
+        top: 0;
+        right: 0;
+      }
+
+      .brand__image--bottom-right {
+        bottom: 2.5%;
+        right: 2.5%;
+      }
+
+      .brand__image--bottom-left {
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+  &.template--common {
+    --template__info-size: 22%;
+    --template__info-height: calc(var(--template__image-size) - 18%);
+    --template__info-badge-margin-bottom: 32px;
+
+    .info {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: var(--template__info-size);
+      height: 100%;
+  
+      &.info--left {
+        left: 0;
+      }
+    
+      &.info--right {
+        right: 0;
+      }
+    }
+  
+    .info__data-with-desc {
+      color: var(--template__info-tc);
+      padding: var(--template__info-badge-padding);
+      border-radius: var(--template-badge-border-radius);
+      background-color: var(--template__info-primary-bgc);
+      margin-bottom: 32px;
+  
+      .data__title {
+        display: block;
+        font-size: var(--template-primary-font-size);
+      }
+  
+      .data__description {
+        display: block;
+        font-size: var(--template-secondary-font-size);
+      }
+    }
+  }
+
+  &.template--shoes {
+    --template-primary-font-size: 70px;
+    --template__info-badge-margin-right: 32px;
+
+    .template__info {
+      position: relative;
+      display: block;
+      width: var(--template__info-width);
+      height: var(--template__info-height);
+    }
+
+    .info {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      &.info--top {
+        top: var(--template--shoes__info--top-margin-top);
+        left: 0;
+        width: 100%;
+        height: var(--template--shoes__info--top-height);
+        display: flex;
+        justify-content: center;
+      }
+      
+      &.info--bottom {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+
+        .info__brand {
+          width: var(--template--common__info__brand-size);
+          margin-left: auto;
+          margin-right: 4%;
+        }
+      }
+    }
+  }
+}
