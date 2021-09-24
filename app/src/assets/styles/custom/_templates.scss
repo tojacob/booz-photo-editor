@@ -1,9 +1,9 @@
 .template {
-  --template-primary-font-size: 90px;
-  --template-secondary-font-size: 70px;
-  --template-badge-border-radius: 90px;
+  --template-primary-font-size: 60px;
+  --template-secondary-font-size: 35px;
+  --template-badge-border-radius: 50px;
   --template-badge-bgc: rgba(0, 0, 0, 0.20);
-  --template__image-size: 1600px;
+  --template__image-size: 800px;
   --template__image-index: 10;
   --template__info-index: 15;
   --template__info-primary-bgc: rgba(0, 0, 0, 0.60);
@@ -11,16 +11,16 @@
   --template__info-width: calc(var(--template__image-size) - 3%);
   --template__info-height: calc(var(--template__image-size) - 3%);
   --template__info-tc: #fff;
-  --template__info-badge-padding: 32px;
+  --template__info-badge-padding: 16px;
   --template__info-badge-margin-bottom: 0;
   --template__info-badge-margin-right: 0;
   --template__info__brand-opacity: 0.75;
   --template__info__price-badge-bgc: rgba(246, 14, 9, 0.80);
   --template__identification-index: 20;
-  --template__identification-font-size: 40px;
+  --template__identification-font-size: 24px;
   --template__identification-margin: 1.5%;
-  --template__identification-padding: 16px;
-  --template--common__info__brand-size: 342px;
+  --template__identification-padding: 8px;
+  --template--common__info__brand-size: 21%;
   --template--shoes__info--top-margin-top: 9%;
   --template--shoes__info--top-height: 18%;
   --template__brand-image-size: 100%;
@@ -92,6 +92,7 @@
   }
   
   .info__price {
+    font-size: var(--template-secondary-font-size);
     color: var(--template__info-tc);
     
     .price__content {
@@ -102,7 +103,6 @@
 
     .price__title, .price__value {
       display: block;
-      font-size: var(--template-secondary-font-size);
     }
 
     .price__value {
@@ -126,7 +126,7 @@
   }
 
   &.template--general {
-    --template__brand-image-size: 23%;
+    --template__brand-image-size: 21%;
 
     .info__brand {
       width: 100%;
@@ -147,8 +147,8 @@
       }
 
       .brand__image--bottom-right {
-        bottom: 2.5%;
-        right: 2.5%;
+        right: 0;
+        bottom: 7.5%;
       }
 
       .brand__image--bottom-left {
@@ -159,9 +159,9 @@
   }
 
   &.template--common {
-    --template__info-size: 22%;
+    --template__info-size: 21%;
     --template__info-height: calc(var(--template__image-size) - 18%);
-    --template__info-badge-margin-bottom: 32px;
+    --template__info-badge-margin-bottom: 16px;
 
     .info {
       position: absolute;
@@ -186,7 +186,7 @@
       padding: var(--template__info-badge-padding);
       border-radius: var(--template-badge-border-radius);
       background-color: var(--template__info-primary-bgc);
-      margin-bottom: 32px;
+      margin-bottom: var(--template__info-badge-margin-bottom);
   
       .data__title {
         display: block;
@@ -200,8 +200,13 @@
     }
   }
 
+  &.template--pant {
+    --template-primary-font-size: 48px;
+    --template__info-size: 22%;
+  }
+
   &.template--shoes {
-    --template-primary-font-size: 70px;
+    --template-primary-font-size: 40px;
     --template__info-badge-margin-right: 32px;
 
     .template__info {
@@ -224,6 +229,10 @@
         height: var(--template--shoes__info--top-height);
         display: flex;
         justify-content: center;
+
+        .info__price {
+          font-size: var(--template-primary-font-size);
+        }
       }
       
       &.info--bottom {
@@ -235,7 +244,8 @@
         .info__brand {
           width: var(--template--common__info__brand-size);
           margin-left: auto;
-          margin-right: 4%;
+          margin-right: 3%;
+          margin-bottom: 3%;
         }
       }
     }

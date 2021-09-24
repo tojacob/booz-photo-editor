@@ -23,7 +23,7 @@ export interface AppControls {
 export interface ProcessedImage {
   input: Response;
   name: string;
-  lastModified: number;
+  lastModified: Date;
 }
 
 export enum BadgePosition {

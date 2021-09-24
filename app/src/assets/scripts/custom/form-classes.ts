@@ -1,4 +1,5 @@
 import html2canvas from 'html2canvas';
+import dayjs from 'dayjs';
 import { controls, formTypes } from "./app.data";
 import { AppControl, BadgePosition, ProcessedImage } from "./app.interfaces";
 
@@ -66,10 +67,27 @@ class MerchBase {
     }
   }
 
-  protected setMerchImage(template: HTMLElement, image: File): void {
-    const imageSelector = this.getDataInfoSelector(controls.file.name);
-    const imageTemplate = <HTMLImageElement>template.querySelector(imageSelector);
-    imageTemplate.src = URL.createObjectURL(image);
+  private getBase64ImgFromFile(file: File): Promise<string> {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const fileReader = <FileReader>event.target;
+        const base64Image = <string>fileReader.result;
+        resolve(base64Image);
+      };
+
+      reader.readAsDataURL(file);
+    });
+  };
+
+  protected setMerchImage(template: HTMLElement, image: File): Promise<void> {
+    return new Promise(async (resolve) => {
+      const imageSelector = this.getDataInfoSelector(controls.file.name);
+      const imageTemplate = <HTMLImageElement>template.querySelector(imageSelector);
+      const imageSourceURL = await this.getBase64ImgFromFile(image);
+      imageTemplate.onload = () => resolve();
+      imageTemplate.src = imageSourceURL;
+    });
   }
 
   protected setMerchBadgePosition(template: HTMLElement, bottomRight?: boolean): void {
@@ -113,23 +131,25 @@ export class Merch extends MerchBase {
 
   public async processingImages(template: HTMLElement): Promise<ProcessedImage> {
     const templateInDom = this.renderTemplateInDom(template);
+    const canvasSize = 800;
     const canvas = await html2canvas(templateInDom, {
-      width: 1600,
-      height: 1600
+      width: canvasSize,
+      height: canvasSize,
+      scale: 2
     });
     const base64ImageURL = canvas.toDataURL('image/jpeg', 0.8);
     const base64Response = await fetch(base64ImageURL);
     const processedImage: ProcessedImage = {
       name: `${this.formIndex}-${this.imageProcessCounter}-${this.batchTimestamp}-processed.jpeg`,
       input: base64Response,
-      lastModified: this.batchTimestamp
+      lastModified: dayjs.unix(this.batchTimestamp).toDate()
     };
     this.imageProcessCounter += 1;
 
-    template.remove();
-    templateInDom.remove();
-    canvas.remove();
-    URL.revokeObjectURL(base64ImageURL);
+    // template.remove();
+    // templateInDom.remove();
+    // canvas.remove();
+    // URL.revokeObjectURL(base64ImageURL);
 
     return processedImage;
   }
@@ -139,7 +159,7 @@ export class Merch extends MerchBase {
     const template = <HTMLElement>generalTemplate.cloneNode(true);
     const processedImages: ProcessedImage[] = [];
 
-    this.setMerchImage(template, image);
+    await this.setMerchImage(template, image);
     this.setMerchBadgePosition(template);
     this.setMerchIdentification(template);
     processedImages.push(await this.processingImages(template));
@@ -158,7 +178,7 @@ export class Merch extends MerchBase {
     for (const merchSize of merchSizes) {
       const template = <HTMLElement>shirtTemplate.cloneNode(true);
 
-      this.setMerchImage(template, image);
+      await this.setMerchImage(template, image);
       this.setMerchBadgePosition(template, true);
       this.setMerchPrice(template);
       this.setMerchIdentification(template);
@@ -193,7 +213,7 @@ export class Merch extends MerchBase {
     for (const merchSize of merchSizes) {
       const template = <HTMLElement>pantTemplate.cloneNode(true);
 
-      this.setMerchImage(template, image);
+      await this.setMerchImage(template, image);
       this.setMerchBadgePosition(template, true);
       this.setMerchPrice(template);
       this.setMerchIdentification(template);
@@ -219,7 +239,7 @@ export class Merch extends MerchBase {
       const mxSize = merchMxSizes[i] || '';
       const usSize = merchUsSizes[i] || '';
 
-      this.setMerchImage(template, image);
+      await this.setMerchImage(template, image);
       this.setMerchBadgePosition(template, true);
       this.setMerchPrice(template);
       this.setMerchIdentification(template);
@@ -245,8 +265,8 @@ export class Merch extends MerchBase {
     const createImage = templates[this.type.value];
 
     for (const image of images) {
-      const images = await createImage(image);
-      processedImages.push(...images);
+      const processedImg = await createImage(image);
+      processedImages.push(...processedImg);
     }
 
     return processedImages;

@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { formTypes, controls } from "./app.data";
 import { ProcessedImage } from "./app.interfaces";
 import { Merch } from "./form-classes";
@@ -60,12 +61,12 @@ export function addFormEditor(): void {
 }
 
 export async function processingEditorForms(): Promise<void> {
-  window.scrollTo(0, 0);
-  window.app.appLoader.show();
-  await timer(3000);
+  // window.scrollTo(0, 0);
+  // window.app.appLoader.show();
+  // await timer(3000);
 
   const forms = <HTMLFormElement[]>Array.from(appFormContainer.getElementsByTagName('form'));
-  const batchTimestamp = Math.floor(Date.now() / 1000);
+  const batchTimestamp = dayjs().unix();
   const images: ProcessedImage[] = [];
 
   // Processing
@@ -84,9 +85,9 @@ export async function processingEditorForms(): Promise<void> {
   };
 
   // Download
-  const zip = await createZipFromBase64Images(images);
+  // const zip = await createZipFromBase64Images(images);
 
-  prepareDownloadBtn(zip, batchTimestamp);
-  showAppFinish();
-  window.app.appLoader.hide();
+  // prepareDownloadBtn(zip, batchTimestamp);
+  // showAppFinish();
+  // window.app.appLoader.hide();
 }
