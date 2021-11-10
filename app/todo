@@ -1,0 +1,12 @@
+Pasos para agregar plantilla:
+1.- Crear componente de plantilla (NameTemplateComponent)
+2.- Crear interface con los datos para plantilla
+3.- Crear FormGroup en HelperService
+4.- Crear componente editor (formulario)
+5.- Añadir plantilla en EditorTypeSelectorComponent
+6.- Añadir platilla en EditorComponent
+7.- Añadir plantilla en ImageProcessorComponent
+
+
+TODO:
+[] Corregir en interfaces los valores: price, offerPrice. Deben ser numericos

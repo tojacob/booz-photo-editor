@@ -1,0 +1,12 @@
+<div id="template" class="template template-general">
+  <img class="template__image" [src]="merch.file">
+  <img
+    [class]="'template__brand ' + logoLabelPositionStyle"
+    src="./assets/logo-rounded.png">
+  <div class="template__identification" *ngIf="merch.id">
+    <span class="identification-value">#{{merch.id}}</span>
+  </div>
+  <div *ngIf="merch.whatsappFilter" class="whatsapp-filter">
+    <img src="./assets/whatsapp-filter.png">
+  </div>
+</div>

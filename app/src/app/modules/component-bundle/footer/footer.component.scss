@@ -1,0 +1,9 @@
+@use '@angular/material' as mat;
+
+.footer {
+  display: block;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  text-align: center;
+  color: mat.get-color-from-palette(mat.$gray-palette, 600);
+}

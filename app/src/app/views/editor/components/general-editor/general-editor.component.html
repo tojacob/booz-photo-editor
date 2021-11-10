@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-title>
+    EDITOR GENERAL
+  </mat-card-title>
+  <mat-card-content>
+    <form class="form" [formGroup]="editor.form">
+      <div class="form-control-file">
+        <input (change)="onAddFiles($event)" type="file" multiple>
+      </div>
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Identificación de mercancía</mat-label>
+        <input formControlName="id" matInput>
+      </mat-form-field>
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Posición del logo</mat-label>
+        <mat-select formControlName="logoLabelPosition">
+          <mat-option
+            *ngFor="let position of labelPositions"
+            [value]="position.value">
+            {{position.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="form-control-toggle">
+        <mat-slide-toggle formControlName="whatsappFilter">
+          Filtro para Whatsapp
+        </mat-slide-toggle>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="onRemove()" mat-button color="warn">
+      Remover edición
+    </button>
+  </mat-card-actions>
+</mat-card>

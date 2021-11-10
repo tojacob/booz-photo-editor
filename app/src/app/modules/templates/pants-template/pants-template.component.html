@@ -1,0 +1,37 @@
+<div id="template" class="template template-shirt">
+  <img class="template__image" [src]="merch.file">
+  <img
+    [class]="'template__brand ' + logoLabelPositionStyle"
+    src="./assets/logo-rounded.png">
+  <img
+    [class]="'template__offer-label ' + offerLabelPositionStyle"
+    src="./assets/offer-label.png">
+  <div class="template__identification" *ngIf="merch.id">
+    <span class="identification-value">#{{merch.id}}</span>
+  </div>
+  <div class="common-template__info">
+    <div *ngIf="merch.sizes" class="info__size">
+      <span class="size__title">TALLA: </span>
+      <span class="size__value">"{{merch.sizes}}"</span>
+    </div>
+    <div *ngIf="merch.court" class="info">
+      <span class="title">CORTE:</span>
+      <span class="value">{{merch.court}}</span>
+    </div>
+    <div *ngIf="merch.color" class="info">
+      <span class="title">COLOR:</span>
+      <span class="value">{{merch.color}}</span>
+    </div>
+    <div *ngIf="merch.price" class="info__price">
+      <span class="title">COSTO:</span>
+      <span class="value">${{merch.price}} MXN</span>
+    </div>
+    <div *ngIf="merch.offerPrice" class="info__offer-price">
+      <span class="title">OFERTA:</span>
+      <span class="value">${{merch.offerPrice}} MXN</span>
+    </div>
+  </div>
+  <div *ngIf="merch.whatsappFilter" class="whatsapp-filter">
+    <img src="./assets/whatsapp-filter.png">
+  </div>
+</div>

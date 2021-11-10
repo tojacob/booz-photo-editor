@@ -1,0 +1,61 @@
+<app-toolbar></app-toolbar>
+
+<div *ngIf="loading" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
+<section *ngIf="!loading" class="container">
+  <div class="header">
+    <span class="description">
+      Agrega un editor y configura sus parámetros según sea necesario.
+    </span>
+  </div>
+
+  <div class="editors">
+    <div class="editor" *ngFor="let editor of editors.content; let i = index;">
+      <ng-container [ngSwitch]="editor.type">
+        <app-general-editor
+          *ngSwitchCase="EDITOR_TYPES.general"
+          [index]="i"
+          [editor]="editor"
+          (remove)="onRemoveEditor($event)">
+        </app-general-editor>
+        <app-shirt-editor
+          *ngSwitchCase="EDITOR_TYPES.shirt"
+          [index]="i"
+          [editor]="editor"
+          (remove)="onRemoveEditor($event)">
+        </app-shirt-editor>
+        <app-jacket-editor
+          *ngSwitchCase="EDITOR_TYPES.jacket"
+          [index]="i"
+          [editor]="editor"
+          (remove)="onRemoveEditor($event)">
+        </app-jacket-editor>
+        <app-pants-editor
+          *ngSwitchCase="EDITOR_TYPES.pants"
+          [index]="i"
+          [editor]="editor"
+          (remove)="onRemoveEditor($event)">
+        </app-pants-editor>
+        <app-shoes-editor
+          *ngSwitchCase="EDITOR_TYPES.shoes"
+          [index]="i"
+          [editor]="editor"
+          (remove)="onRemoveEditor($event)">
+        </app-shoes-editor>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<div class="float-actions">
+  <button (click)="onAddNewEditor()" class="add" mat-fab color="primary">
+    <mat-icon>add</mat-icon>
+  </button>
+  <button (click)="onRunEditor()" class="run" mat-fab color="accent">
+    <mat-icon>play_arrow</mat-icon>
+  </button>
+</div>
+
+<app-footer></app-footer>

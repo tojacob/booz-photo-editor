@@ -1,0 +1,14 @@
+.icon-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  mat-icon {
+    $size: 18px;
+
+    width: $size;
+    height: $size;
+    font-size: $size;
+    margin-right: 4px;
+  }
+}

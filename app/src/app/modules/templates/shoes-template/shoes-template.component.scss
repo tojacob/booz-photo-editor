@@ -1,0 +1,69 @@
+.shoes-template__info {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 9%;
+  left: 0;
+  width: 100%;
+  z-index: var(--common-info-z-index);
+
+  .info__size, .info__price, .info__offer-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 23%;
+    font-size: var(--common-primary-font-size);
+    color: #fff;
+    background-color: var(--common-info-bgc);
+    border-radius: var(--common-info-border-radius);
+    padding: var(--common-info-padding);
+    margin-top: var(--common-info-margin-top);
+    margin-bottom: var(--common-info-margin-bot);
+
+    .title {
+      display: block;
+    }
+
+    .value {
+      display: block;
+    }
+  }
+
+  .info__size {
+    margin-right: 8px;
+
+    .size__title {
+      font-size: var(--common-primary-font-size);
+    }
+
+    .size__value {
+      display: block;
+      font-size: 28px;
+    }
+  }
+
+  .info__price {
+    color: #fff;
+    background-color: var(--common-price-bgc);
+    margin-right: 8px;
+
+    .value {
+      white-space: nowrap;
+    }
+  }
+
+  .info__offer-price {
+    color: #000;
+    background-color: var(--common-offer-bgc);
+
+    .value {
+      white-space: nowrap;
+    }
+  }
+}
+
+.label-position-bot-right {
+  bottom: 6%!important;
+}

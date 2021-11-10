@@ -1,0 +1,59 @@
+<mat-card>
+  <mat-card-title>
+    EDITOR CALZADO
+  </mat-card-title>
+  <mat-card-content>
+    <form class="form" [formGroup]="editor.form">
+      <div class="form-control-file">
+        <input (change)="onAddFiles($event)" type="file" multiple>
+      </div>
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Identificación de mercancía</mat-label>
+        <input formControlName="id" matInput>
+      </mat-form-field>
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Posición del logo</mat-label>
+        <mat-select formControlName="logoLabelPosition">
+          <mat-option
+            *ngFor="let position of labelPositions"
+            [value]="position.value">
+            {{position.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Posición de etiqueta de oferta</mat-label>
+        <mat-select formControlName="offerLabelPosition">
+          <mat-option
+            *ngFor="let position of labelPositions"
+            [value]="position.value">
+            {{position.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="form-control mb-16" appearance="outline">
+        <mat-label>Talla americana (US)</mat-label>
+        <input formControlName="sizes" matInput>
+        <mat-hint>La talla mexicana (MX) se agrega automáticamente</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Precio</mat-label>
+        <input formControlName="price" matInput type="number">
+      </mat-form-field>
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Precio de oferta</mat-label>
+        <input formControlName="offerPrice" matInput type="number">
+      </mat-form-field>
+      <div class="form-control-toggle">
+        <mat-slide-toggle formControlName="whatsappFilter">
+          Filtro para Whatsapp
+        </mat-slide-toggle>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="onRemove()" mat-button color="warn">
+      Remover edición
+    </button>
+  </mat-card-actions>
+</mat-card>

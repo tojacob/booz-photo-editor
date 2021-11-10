@@ -1,0 +1,37 @@
+<app-toolbar></app-toolbar>
+
+<div *ngIf="loading" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
+<section *ngIf="!loading" class="container">
+  <div class="content">
+    <mat-card>
+      <mat-card-title>
+        Descarga tus archivos
+      </mat-card-title>
+      <mat-card-subtitle>
+        La operación finalizo exitosamente
+      </mat-card-subtitle>
+      <mat-card-actions>
+        <a
+          [href]="downloadLink" [download]="downloadName"
+          mat-button
+          color="accent">
+          <div class="icon-btn">
+            <mat-icon>save</mat-icon>
+            <span>Guardar</span>
+          </div>
+        </a>
+        <button (click)="reload()" mat-button color="warn">
+          <div class="icon-btn">
+            <mat-icon>refresh</mat-icon>
+            <span>Reiniciar</span>
+          </div>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>
+
+<app-footer></app-footer>

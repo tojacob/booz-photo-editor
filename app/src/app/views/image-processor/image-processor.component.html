@@ -1,0 +1,29 @@
+<section *ngIf="bootstraped" class="templates">
+  <ng-container [ngSwitch]="editor.type">
+    <app-general-template
+      *ngSwitchCase="EDITOR_TYPES.general"
+      [data]="currentEdition"
+      (mounted)="onTemplateMounted($event)">
+    </app-general-template>
+    <app-shirt-template
+      *ngSwitchCase="EDITOR_TYPES.shirt"
+      [data]="currentEdition"
+      (mounted)="onTemplateMounted($event)">
+    </app-shirt-template>
+    <app-jacket-template
+      *ngSwitchCase="EDITOR_TYPES.jacket"
+      [data]="currentEdition"
+      (mounted)="onTemplateMounted($event)">
+    </app-jacket-template>
+    <app-pants-template
+      *ngSwitchCase="EDITOR_TYPES.pants"
+      [data]="currentEdition"
+      (mounted)="onTemplateMounted($event)">
+    </app-pants-template>
+    <app-shoes-template
+      *ngSwitchCase="EDITOR_TYPES.shoes"
+      [data]="currentEdition"
+      (mounted)="onTemplateMounted($event)">
+    </app-shoes-template>
+  </ng-container>
+</section>

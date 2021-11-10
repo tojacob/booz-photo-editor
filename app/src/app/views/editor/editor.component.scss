@@ -1,0 +1,55 @@
+@use '@angular/material' as mat;
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 64px auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 64px;
+  text-align: center;
+
+  .title {
+    display: block;
+    font-size: 38px;
+    margin-bottom: 16px;
+  }
+
+  .description {
+    font-size: 20px;
+    line-height: normal;
+    color: mat.get-color-from-palette(mat.$gray-palette, 600);
+  }
+}
+
+.editors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .editor {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+
+    @media (min-width: 768px) {
+      width: 49%;
+    }
+  }
+}
+
+.float-actions {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  flex-direction: column;
+
+  .add {
+    margin-bottom: 16px;
+  }
+}

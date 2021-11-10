@@ -1,0 +1,18 @@
+<mat-selection-list [multiple]="false">
+  <mat-list-option (click)="onOptionSelection(EDITOR_TYPE.general)">
+    General
+  </mat-list-option>
+  <mat-list-option (click)="onOptionSelection(EDITOR_TYPE.shirt)">
+    Camisa
+  </mat-list-option>
+  <mat-list-option (click)="onOptionSelection(EDITOR_TYPE.jacket)">
+    Chamarra
+  </mat-list-option>
+  <mat-list-option (click)="onOptionSelection(EDITOR_TYPE.pants)">
+    Patalón
+  </mat-list-option>
+  <mat-list-option (click)="onOptionSelection(EDITOR_TYPE.shoes)">
+    Calzado
+  </mat-list-option>
+  <div class="spacer"></div>
+</mat-selection-list>

@@ -1,0 +1,16 @@
+@use '@angular/material' as mat;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  font-size: 16px!important;
+  background-color: mat.get-color-from-palette(mat.$gray-palette, 50);
+}
