@@ -1,37 +1,40 @@
-<div id="template" class="template template-shirt">
-  <img class="template__image" [src]="merch.file">
+<div
+  id="template"
+  class="template template-shirt"
+  [ngStyle]="{width: resolution.width, height: resolution.height}">
+  <img class="template__image" [src]="data.file">
   <img
     [class]="'template__brand ' + logoLabelPositionStyle"
     src="./assets/logo-rounded.png">
   <img
     [class]="'template__offer-label ' + offerLabelPositionStyle"
     src="./assets/offer-label.png">
-  <div class="template__identification" *ngIf="merch.id">
-    <span class="identification-value">#{{merch.id}}</span>
+  <div class="template__identification" *ngIf="data.id">
+    <span class="identification-value">#{{data.id}}</span>
   </div>
   <div class="common-template__info">
-    <div *ngIf="merch.sizes" class="info__size">
+    <div *ngIf="data.size" class="info__size">
       <span class="size__title">TALLA: </span>
-      <span class="size__value">"{{merch.sizes}}"</span>
+      <span class="size__value">"{{data.size}}"</span>
     </div>
-    <div *ngIf="merch.court" class="info">
+    <div *ngIf="data.court" class="info">
       <span class="title">CORTE:</span>
-      <span class="value">{{merch.court}}</span>
+      <span class="value">{{data.court}}</span>
     </div>
-    <div *ngIf="merch.color" class="info">
+    <div *ngIf="data.color" class="info">
       <span class="title">COLOR:</span>
-      <span class="value">{{merch.color}}</span>
+      <span class="value">{{data.color}}</span>
     </div>
-    <div *ngIf="merch.price" class="info__price">
+    <div *ngIf="data.price" class="info__price">
       <span class="title">COSTO:</span>
-      <span class="value">${{merch.price}} MXN</span>
+      <span class="value">${{data.price}} MXN</span>
     </div>
-    <div *ngIf="merch.offerPrice" class="info__offer-price">
+    <div *ngIf="data.offerPrice" class="info__offer-price">
       <span class="title">OFERTA:</span>
-      <span class="value">${{merch.offerPrice}} MXN</span>
+      <span class="value">${{data.offerPrice}} MXN</span>
     </div>
   </div>
-  <div *ngIf="merch.whatsappFilter" class="whatsapp-filter">
+  <div *ngIf="data.whatsappFilter" class="whatsapp-filter">
     <img src="./assets/whatsapp-filter.png">
   </div>
 </div>

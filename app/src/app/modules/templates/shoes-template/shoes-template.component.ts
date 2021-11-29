@@ -1,5 +1,7 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input } from '@angular/core';
+import { ReplaySubject } from 'rxjs';
 import { LabelPosition, ShoesEditor } from 'src/app/interfaces/editor.interfaces';
+import { ImageResolution } from 'src/app/interfaces/processor.interfaces';
 import { TermplateService } from '../termplate.service';
 
 @Component({
@@ -7,31 +9,32 @@ import { TermplateService } from '../termplate.service';
   templateUrl: './shoes-template.component.html',
   styleUrls: ['./shoes-template.component.scss']
 })
-export class ShoesTemplateComponent implements OnInit, AfterViewInit {
-  public merch: ShoesEditor = {
+export class ShoesTemplateComponent implements AfterViewInit {
+  private readonly bootstrapedSubject = new ReplaySubject<HTMLElement>(1);
+  public readonly bootstraped$ = this.bootstrapedSubject.asObservable();
+
+  @Input() public data: ShoesEditor = {
     file: "assets/merch-test-5.jpg",
     id: "99",
     logoLabelPosition: LabelPosition.bottomRight,
     whatsappFilter: false,
-    sizes: "10",
+    size: "10",
     price: 1200,
     offerPrice: 900,
     offerLabelPosition: LabelPosition.none
   };
 
-  @Input() public set data(data: ShoesEditor) {
-    if (!data) return;
-    this.merch = data;
-  }
-
-  @Output() public mounted = new EventEmitter<HTMLElement>();
+  @Input() public resolution: ImageResolution = {
+    width: "800px",
+    height: "800px"
+  };
 
   public get logoLabelPositionStyle(): string {
-    return this.templateService.labelPositions[this.merch.logoLabelPosition];
+    return this.templateService.labelPositions[this.data.logoLabelPosition];
   }
 
   public get offerLabelPositionStyle(): string {
-    return this.templateService.labelPositions[this.merch.offerLabelPosition];
+    return this.templateService.labelPositions[this.data.offerLabelPosition];
   }
 
   constructor(
@@ -39,12 +42,10 @@ export class ShoesTemplateComponent implements OnInit, AfterViewInit {
     private templateService: TermplateService
   ) { }
 
-  public ngOnInit(): void { }
-
   public ngAfterViewInit(): void {
     const nativeElement = <HTMLElement>this.elRef.nativeElement;
     const template = <HTMLElement>nativeElement.querySelector("#template");
 
-    this.mounted.emit(template);
+    this.bootstrapedSubject.next(template);
   }
 }

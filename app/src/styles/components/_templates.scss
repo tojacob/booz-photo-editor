@@ -1,5 +1,4 @@
 .template {
-  --template-size: 800px;
   --common-primary-font-size: 36px;
   --common-secondary-font-size: 22px;
   --common-info-border-radius: 30px;
@@ -15,10 +14,6 @@
 
   position: relative;
   display: block;
-  width: var(--template-size);
-  height: var(--template-size);
-  max-width: var(--template-size);
-  max-height: var(--template-size);
   font-family: 'Alumni Sans', sans-serif;
   font-weight: 700;
   line-height: 1;
@@ -26,8 +21,8 @@
 
   .template__image {
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     display: block;
     height: 100%;
     width: 100%;

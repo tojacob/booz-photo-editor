@@ -3,3 +3,8 @@ export interface ProcessedImage {
   name: string;
   lastModified: Date;
 }
+
+export interface ImageResolution {
+  height: string;
+  width: string;
+}

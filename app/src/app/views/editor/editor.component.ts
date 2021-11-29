@@ -47,6 +47,6 @@ export class EditorComponent implements OnInit {
   }
 
   public async onRunEditor(): Promise<void> {
-    this.editor.run();
+    await this.editor.run();
   }
 }

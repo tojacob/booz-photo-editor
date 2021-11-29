@@ -13,6 +13,13 @@
       <mat-card-subtitle>
         La operación finalizo exitosamente
       </mat-card-subtitle>
+      <mat-card-content>
+        Se procesaron
+        <span class="red">{{totalProcessed}}</span>
+        imágenes en
+        <span class="green">{{totalSeconds}}</span>
+        segundos.
+      </mat-card-content>
       <mat-card-actions>
         <a
           [href]="downloadLink" [download]="downloadName"

@@ -4,7 +4,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { EditorService } from './editor.service';
 import { EditorsService } from './editors.service';
-import { ProcessorService } from './processor.service';
 
 
 
@@ -17,8 +16,7 @@ import { ProcessorService } from './processor.service';
   ],
   providers: [
     EditorService,
-    EditorsService,
-    ProcessorService
+    EditorsService
   ]
 })
 export class ServicesModule { }

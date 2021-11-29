@@ -22,18 +22,18 @@ export interface Editor {
 }
 
 export interface GeneralEditor {
-  file: null | string | FileList,
-  id: string,
-  logoLabelPosition: LabelPosition,
+  file: null | string | FileList;
+  id: string;
+  logoLabelPosition: LabelPosition;
   whatsappFilter: boolean;
 }
 
 export interface ShirtEditor {
-  file: null | string | FileList,
-  id: string,
-  logoLabelPosition: LabelPosition,
+  file: null | string | FileList;
+  id: string;
+  logoLabelPosition: LabelPosition;
   whatsappFilter: boolean;
-  sizes: string;
+  size: string;
   sizeDescription: string;
   price: number | null;
   offerPrice: number | null;
@@ -41,11 +41,11 @@ export interface ShirtEditor {
 }
 
 export interface JacketEditor {
-  file: null | string | FileList,
-  id: string,
-  logoLabelPosition: LabelPosition,
+  file: null | string | FileList;
+  id: string;
+  logoLabelPosition: LabelPosition;
   whatsappFilter: boolean;
-  sizes: string;
+  size: string;
   sizeDescription: string;
   price: number | null;
   offerPrice: number | null;
@@ -53,11 +53,11 @@ export interface JacketEditor {
 }
 
 export interface PantsEditor {
-  file: null | string | FileList,
-  id: string,
-  logoLabelPosition: LabelPosition,
+  file: null | string | FileList;
+  id: string;
+  logoLabelPosition: LabelPosition;
   whatsappFilter: boolean;
-  sizes: string;
+  size: string;
   court: string;
   color: string;
   price: number | null;
@@ -66,11 +66,11 @@ export interface PantsEditor {
 }
 
 export interface ShoesEditor {
-  file: null | string | FileList,
-  id: string,
-  logoLabelPosition: LabelPosition,
+  file: null | string | FileList;
+  id: string;
+  logoLabelPosition: LabelPosition;
   whatsappFilter: boolean;
-  sizes: string;
+  size: string;
   price: number | null;
   offerPrice: number | null;
   offerLabelPosition: LabelPosition;

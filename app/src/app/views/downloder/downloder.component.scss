@@ -1,3 +1,5 @@
+@use '@angular/material' as mat;
+
 .spinner {
   display: flex;
   justify-content: center;
@@ -10,4 +12,14 @@
   max-width: 425px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.red {
+  font-weight: bold;
+  color: mat.get-color-from-palette(mat.$red-palette, 500);
+}
+
+.green {
+  font-weight: bold;
+  color: mat.get-color-from-palette(mat.$green-palette, 500);
 }
