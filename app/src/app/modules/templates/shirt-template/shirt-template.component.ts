@@ -19,9 +19,9 @@ export class ShirtTemplateComponent implements AfterViewInit {
     logoLabelPosition: LabelPosition.bottomRight,
     whatsappFilter: false,
     size: "XL",
-    sizeDescription: "Viene a la medida",
-    price: 1200,
-    offerPrice: 900,
+    sizeDescription: "VIENE A LA MEDIDA",
+    price: "1200",
+    offerPrice: "900",
     offerLabelPosition: LabelPosition.none,
   };
 

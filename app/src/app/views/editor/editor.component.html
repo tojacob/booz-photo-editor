@@ -44,6 +44,12 @@
           [editor]="editor"
           (remove)="onRemoveEditor($event)">
         </app-shoes-editor>
+        <app-accessory-editor
+          *ngSwitchCase="EDITOR_TYPES.accessory"
+          [index]="i"
+          [editor]="editor"
+          (remove)="onRemoveEditor($event)">
+        </app-accessory-editor>
       </ng-container>
     </div>
   </div>

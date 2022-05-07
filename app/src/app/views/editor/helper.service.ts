@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Editor, EditorType, GeneralEditor, JacketEditor, LabelPosition, PantsEditor, ShirtEditor, ShoesEditor } from 'src/app/interfaces/editor.interfaces';
+import { AccessoryEditor, Editor, EditorType, GeneralEditor, JacketEditor, LabelPosition, PantsEditor, ShirtEditor, ShoesEditor } from 'src/app/interfaces/editor.interfaces';
 
 interface BadgePositionMap { name: string, value: LabelPosition; };
 
@@ -27,8 +27,8 @@ export class HelperService {
         whatsappFilter: false,
         size: "",
         sizeDescription: "",
-        price: null,
-        offerPrice: null,
+        price: "",
+        offerPrice: "",
         offerLabelPosition: LabelPosition.none
       })
     }),
@@ -41,8 +41,8 @@ export class HelperService {
         whatsappFilter: false,
         size: "",
         sizeDescription: "",
-        price: null,
-        offerPrice: null,
+        price: "",
+        offerPrice: "",
         offerLabelPosition: LabelPosition.none
       })
     }),
@@ -56,8 +56,8 @@ export class HelperService {
         size: "",
         court: "",
         color: "",
-        price: null,
-        offerPrice: null,
+        price: "",
+        offerPrice: "",
         offerLabelPosition: LabelPosition.none
       })
     }),
@@ -69,11 +69,25 @@ export class HelperService {
         logoLabelPosition: LabelPosition.bottomRight,
         whatsappFilter: false,
         size: "",
-        price: null,
-        offerPrice: null,
+        price: "",
+        offerPrice: "",
         offerLabelPosition: LabelPosition.none
       })
-    })
+    }),
+    [EditorType.accessory]: (): Editor => ({
+      type: EditorType.accessory,
+      form: this.fb.group(<AccessoryEditor>{
+        file: null,
+        id: "",
+        logoLabelPosition: LabelPosition.bottomRight,
+        whatsappFilter: false,
+        quantity: "",
+        quantityDescription: "",
+        price: "",
+        offerPrice: "",
+        offerLabelPosition: LabelPosition.none
+      })
+    }),
   };
 
   public readonly labelPositions: BadgePositionMap[] = [

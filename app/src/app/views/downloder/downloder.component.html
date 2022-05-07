@@ -14,15 +14,24 @@
         La operación finalizo exitosamente
       </mat-card-subtitle>
       <mat-card-content>
-        Se procesaron
-        <span class="red">{{totalProcessed}}</span>
-        imágenes en
-        <span class="green">{{totalSeconds}}</span>
-        segundos.
+        <div>
+          Se procesaron
+          <span class="red">{{totalProcessed}}</span>
+          imágenes en
+          <span class="green">{{totalSeconds}}</span>
+          segundos.
+        </div>
+        <div class="new-download-method">
+          <mat-checkbox [(ngModel)]="newDownloadMethod">
+            Nuevo metodo de descarga
+          </mat-checkbox>
+        </div>
       </mat-card-content>
       <mat-card-actions>
         <a
-          [href]="downloadLink" [download]="downloadName"
+          [href]="downloadLink"
+          [download]="downloadName"
+          [target]="newDownloadMethod ? '__blank' : '_self'"
           mat-button
           color="accent">
           <div class="icon-btn">

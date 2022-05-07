@@ -20,9 +20,9 @@ export class JacketTemplateComponent implements AfterViewInit {
     whatsappFilter: false,
     size: "XL",
     sizeDescription: "VIENE A LA MEDIDA",
-    price: 1200,
-    offerPrice: 900,
-    offerLabelPosition: LabelPosition.none
+    price: "1200",
+    offerPrice: "900",
+    offerLabelPosition: LabelPosition.bottomLeft
   };
 
   @Input() public resolution: ImageResolution = {

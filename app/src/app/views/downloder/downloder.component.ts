@@ -2,9 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
 import { LoadingDialogComponent } from 'src/app/modules/component-bundle/loading-dialog/loading-dialog.component';
 import { EditorService } from 'src/app/modules/services/editor.service';
 import { EditorsService } from 'src/app/modules/services/editors.service';
+
+@Component({
+  template: `
+    <h2 mat-dialog-title>¿Estas seguro?</h2>
+    <div mat-dialog-content class="mat-typography">
+      <p>
+        Asegurate de guardar los documentos que editaste.
+      </p>
+    </div>
+    <div mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close cdkFocusInitial>
+        Cancelar
+      </button>
+      <button mat-button color="warn" [mat-dialog-close]="true">
+        Si, reiniciar
+      </button>
+    </div>
+  `
+})
+export class ReloadDialogComponent { }
 
 @Component({
   selector: 'app-downloder',
@@ -17,6 +38,7 @@ export class DownloderComponent implements OnInit {
   public downloadName!: string;
   public totalSeconds: string = "";
   public totalProcessed: number = 0;
+  public newDownloadMethod = false;
 
   constructor(
     private editorService: EditorService,
@@ -41,12 +63,17 @@ export class DownloderComponent implements OnInit {
   }
 
   public async reload(): Promise<void> {
-    await this.dialog.open(LoadingDialogComponent, {
-      disableClose: true,
-      closeOnNavigation: false,
-      backdropClass: "dialog-backdrop"
-    });
-    await this.router.navigateByUrl("");
-    window.location.reload();
+    const confirmDialogRef = await this.dialog.open(ReloadDialogComponent);
+    const result = await firstValueFrom(confirmDialogRef.afterClosed());
+
+    if (result) {
+      await this.dialog.open(LoadingDialogComponent, {
+        disableClose: true,
+        closeOnNavigation: false,
+        backdropClass: "dialog-backdrop"
+      });
+      await this.router.navigateByUrl("");
+      setTimeout(() => { window.location.reload(); }, 1000);
+    }
   }
 }

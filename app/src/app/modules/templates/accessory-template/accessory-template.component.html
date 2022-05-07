@@ -16,13 +16,14 @@
   <div class="template__identification" *ngIf="data.id">
     <span class="identification-value">#{{data.id}}</span>
   </div>
-  <div class="common-template__info jacket-template__info">
-    <div *ngIf="data.size || data.sizeDescription" class="info__size">
-      <span *ngIf="data.size" class="size__value">
-        TALLA: "{{data.size}}"
+  <div class="common-template__info">
+    <div *ngIf="data.quantity || data.quantityDescription" class="info__size">
+      <span *ngIf="data.quantity" class="size__value">
+        CANTIDAD: <br>
+        {{data.quantity}}
       </span>
-      <span *ngIf="data.sizeDescription" class="size__description">
-        {{data.sizeDescription}}
+      <span *ngIf="data.quantityDescription" class="size__description">
+        {{data.quantityDescription}}
       </span>
     </div>
     <div *ngIf="data.price" class="info__price">

@@ -13,6 +13,7 @@ import { ShirtEditorComponent } from './components/shirt-editor/shirt-editor.com
 import { PantsEditorComponent } from './components/pants-editor/pants-editor.component';
 import { JacketEditorComponent } from './components/jacket-editor/jacket-editor.component';
 import { ShoesEditorComponent } from './components/shoes-editor/shoes-editor.component';
+import { AccessoryEditorComponent } from './components/accessory-editor/accessory-editor.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ShoesEditorComponent } from './components/shoes-editor/shoes-editor.com
     ShirtEditorComponent,
     PantsEditorComponent,
     JacketEditorComponent,
-    ShoesEditorComponent
+    ShoesEditorComponent,
+    AccessoryEditorComponent
   ],
   imports: [
     CommonModule,

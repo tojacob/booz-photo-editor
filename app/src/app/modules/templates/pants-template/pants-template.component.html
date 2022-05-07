@@ -1,7 +1,11 @@
 <div
   id="template"
   class="template template-shirt"
-  [ngStyle]="{width: resolution.width, height: resolution.height}">
+  [ngStyle]="{
+    width: resolution.width, 
+    height: resolution.height,
+    fontSize: resolution.width
+  }">
   <img class="template__image" [src]="data.file">
   <img
     [class]="'template__brand ' + logoLabelPositionStyle"
@@ -14,8 +18,7 @@
   </div>
   <div class="common-template__info">
     <div *ngIf="data.size" class="info__size">
-      <span class="size__title">TALLA: </span>
-      <span class="size__value">"{{data.size}}"</span>
+      <span class="size__value">TALLA: "{{data.size}}"</span>
     </div>
     <div *ngIf="data.court" class="info">
       <span class="title">CORTE:</span>

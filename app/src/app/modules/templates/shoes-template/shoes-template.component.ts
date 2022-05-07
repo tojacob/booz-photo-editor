@@ -18,9 +18,9 @@ export class ShoesTemplateComponent implements AfterViewInit {
     id: "99",
     logoLabelPosition: LabelPosition.bottomRight,
     whatsappFilter: false,
-    size: "10",
-    price: 1200,
-    offerPrice: 900,
+    size: "10.5",
+    price: "1200",
+    offerPrice: "900",
     offerLabelPosition: LabelPosition.none
   };
 

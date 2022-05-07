@@ -6,16 +6,18 @@ import { PantsTemplateComponent } from './pants-template/pants-template.componen
 import { JacketTemplateComponent } from './jacket-template/jacket-template.component';
 import { ShoesTemplateComponent } from './shoes-template/shoes-template.component';
 import { MxSizePipe } from './shoes-template/mx-size.pipe';
+import { AccessoryTemplateComponent } from './accessory-template/accessory-template.component';
 
 
 @NgModule({
   declarations: [
+    MxSizePipe,
     GeneralTemplateComponent,
     ShirtTemplateComponent,
     PantsTemplateComponent,
     JacketTemplateComponent,
     ShoesTemplateComponent,
-    MxSizePipe
+    AccessoryTemplateComponent
   ],
   imports: [CommonModule],
   exports: [
@@ -23,7 +25,8 @@ import { MxSizePipe } from './shoes-template/mx-size.pipe';
     ShirtTemplateComponent,
     PantsTemplateComponent,
     JacketTemplateComponent,
-    ShoesTemplateComponent
+    ShoesTemplateComponent,
+    AccessoryTemplateComponent
   ]
 })
 export class TemplatesModule { }

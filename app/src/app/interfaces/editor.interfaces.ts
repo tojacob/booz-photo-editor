@@ -5,7 +5,8 @@ export enum EditorType {
   shirt = 200,
   jacket = 300,
   pants = 400,
-  shoes = 500
+  shoes = 500,
+  accessory = 600
 }
 
 export enum LabelPosition {
@@ -35,8 +36,8 @@ export interface ShirtEditor {
   whatsappFilter: boolean;
   size: string;
   sizeDescription: string;
-  price: number | null;
-  offerPrice: number | null;
+  price: string;
+  offerPrice: string;
   offerLabelPosition: LabelPosition;
 }
 
@@ -47,8 +48,8 @@ export interface JacketEditor {
   whatsappFilter: boolean;
   size: string;
   sizeDescription: string;
-  price: number | null;
-  offerPrice: number | null;
+  price: string;
+  offerPrice: string;
   offerLabelPosition: LabelPosition;
 }
 
@@ -60,8 +61,8 @@ export interface PantsEditor {
   size: string;
   court: string;
   color: string;
-  price: number | null;
-  offerPrice: number | null;
+  price: string;
+  offerPrice: string;
   offerLabelPosition: LabelPosition;
 }
 
@@ -71,7 +72,19 @@ export interface ShoesEditor {
   logoLabelPosition: LabelPosition;
   whatsappFilter: boolean;
   size: string;
-  price: number | null;
-  offerPrice: number | null;
+  price: string;
+  offerPrice: string;
+  offerLabelPosition: LabelPosition;
+}
+
+export interface AccessoryEditor {
+  file: null | string | FileList;
+  id: string;
+  logoLabelPosition: LabelPosition;
+  whatsappFilter: boolean;
+  quantity: string;
+  quantityDescription: string;
+  price: string;
+  offerPrice: string;
   offerLabelPosition: LabelPosition;
 }

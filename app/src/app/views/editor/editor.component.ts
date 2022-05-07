@@ -34,12 +34,11 @@ export class EditorComponent implements OnInit {
 
   public onAddNewEditor(): void {
     const btnSheet = this.btnSheet.open(EditorTypeSelectorComponent);
-    const onSelect = (type: EditorType) => { this.addNewEditor(type); };
 
     btnSheet
       .afterDismissed()
       .pipe(take(1), filter((type) => type !== undefined))
-      .subscribe(onSelect);
+      .subscribe((type: EditorType) => { this.addNewEditor(type); });
   }
 
   public onRemoveEditor(index: number): void {

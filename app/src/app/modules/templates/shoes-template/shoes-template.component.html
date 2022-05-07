@@ -1,7 +1,11 @@
 <div
   id="template"
   class="template template-shirt"
-  [ngStyle]="{width: resolution.width, height: resolution.height}">
+  [ngStyle]="{
+    width: resolution.width, 
+    height: resolution.height,
+    fontSize: resolution.width
+  }">
   <img class="template__image" [src]="data.file">
   <img
     [class]="'template__brand ' + logoLabelPositionStyle"

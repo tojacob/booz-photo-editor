@@ -1,12 +1,12 @@
 .template {
-  --common-primary-font-size: 36px;
-  --common-secondary-font-size: 22px;
-  --common-info-border-radius: 30px;
-  --common-info-padding: 16px;
+  --common-primary-font-size: 0.23em;
+  --common-secondary-font-size: 0.15em;
+  --common-info-border-radius: 0.15em;
+  --common-info-padding: 6%;
   --common-info-z-index: 20;
   --common-info-width: 22%;
-  --common-info-margin-top: 16px;
-  --common-info-margin-bot: 16px;
+  --common-info-margin-top: 4%;
+  --common-info-margin-bot: 4%;
   --common-info-bgc: rgba(0, 0, 0, 0.60);
   --common-price-bgc: rgba(246, 14, 9, 0.80);
   --common-offer-bgc: rgba(253, 252, 0, 0.80);
@@ -53,12 +53,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 0.03em;
     color: #fff;
     background-color: rgb(134, 131, 131);
     border-radius: 100%;
     opacity: 0.75;
-    padding: 8px;
+    padding: 1%;
     z-index: var(--common-info-z-index);
   }
 
@@ -98,15 +98,18 @@
 
       .title {
         display: block;
+        font-size: var(--common-primary-font-size);
       }
   
       .value {
         display: block;
+        font-size: var(--common-primary-font-size);
       }
     }
 
     .info__size {
-      .size__title, .size__value {
+      .size__value {
+        display: block;
         font-size: var(--common-primary-font-size);
       }
   

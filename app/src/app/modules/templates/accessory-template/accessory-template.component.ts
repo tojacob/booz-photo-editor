@@ -1,29 +1,28 @@
 import { AfterViewInit, Component, ElementRef, Input } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
-import { LabelPosition, PantsEditor } from 'src/app/interfaces/editor.interfaces';
+import { AccessoryEditor, LabelPosition } from 'src/app/interfaces/editor.interfaces';
 import { ImageResolution } from 'src/app/interfaces/processor.interfaces';
 import { TermplateService } from '../termplate.service';
 
 @Component({
-  selector: 'app-pants-template',
-  templateUrl: './pants-template.component.html',
-  styleUrls: ['./pants-template.component.scss']
+  selector: 'app-accessory-template',
+  templateUrl: './accessory-template.component.html',
+  styleUrls: ['./accessory-template.component.scss']
 })
-export class PantsTemplateComponent implements AfterViewInit {
+export class AccessoryTemplateComponent implements AfterViewInit {
   private readonly bootstrapedSubject = new ReplaySubject<HTMLElement>(1);
   public readonly bootstraped$ = this.bootstrapedSubject.asObservable();
 
-  @Input() public data: PantsEditor = {
-    file: "assets/merch-test-4.jpg",
+  @Input() public data: AccessoryEditor = {
+    file: "assets/merch-test-6.jpeg",
     id: "99",
     logoLabelPosition: LabelPosition.bottomRight,
     whatsappFilter: false,
-    size: "XL",
-    court: "Moderno",
-    color: "Vainilla metalico",
+    quantity: "12",
+    quantityDescription: "",
     price: "1200",
     offerPrice: "900",
-    offerLabelPosition: LabelPosition.none
+    offerLabelPosition: LabelPosition.none,
   };
 
   @Input() public resolution: ImageResolution = {
